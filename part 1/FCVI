@@ -20,7 +20,7 @@ class algs:
             var_g_grad = 4 * np.sum(np.einsum('ij,ij->j', V.T, V.T))  # Variance of gradient based on matrix V
             var_g = 2 * m + 4 * D_x**2 * np.sum(np.linalg.norm(V, axis=1)**2)  # Variance of constraint function
         
-       怎么办: # Compute step sizes eta and tau for optimization
+       # Compute step sizes eta and tau for optimization
         eta = (L_g * B) + (8 * L + 8 * M_g * B / D_x) + (8 * B * np.sqrt(var_g_grad)) * np.sqrt(K) / D_x  # Step size for x and y updates
         tau = (9 * max(M_g, np.sqrt(var_g_grad)) * D_x) / B + (8 / B * np.sqrt(K) * np.sqrt(var_g + var_g_grad))  # Step size for lambda updates
         
